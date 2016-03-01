@@ -1,0 +1,22 @@
+{
+  "name": "minecraft-package-manager",
+  "version": "1.0.0",
+  "description": "It's kinda like npm, but it's for Minecraft. Cool right?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wski/minecraft-package-manager.git"
+  },
+  "bin": {
+    "mpm": "./index.js"
+  },
+  "author": "wski <contact.mattdylan@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wski/minecraft-package-manager/issues"
+  },
+  "homepage": "https://github.com/wski/minecraft-package-manager#readme"
+}
