@@ -6,6 +6,7 @@ const download = require('./tools/download');
 const init = require('./tools/init');
 const ProgressBar = require('progress');
 const fs = require('fs');
+const chalk = require('chalk');
 
 if (yargs.init) {
   init();
@@ -29,7 +30,9 @@ if (yargs.init) {
   };
 
 
-  opts.bar = new ProgressBar(`:plugin → ${opts.shortLocation} ╢:bar╟`, {
+  opts.bar = new ProgressBar(
+    `${chalk.blue(':plugin → ' + opts.shortLocation)} ${chalk.green(':bar')}`
+  , {
     total: Object.keys(opts.package.plugins).length,
     incomplete: '░',
     complete: '█',
