@@ -8,33 +8,6 @@ module.exports = function(opts, yargs) {
   let plugins = opts.package.plugins;
   let downloaded = 0;
 
-  if (yargs.j && opts.package.jar) {
-    opts.bar.tick(0, {
-      plugin: 'Main Jar',
-      to: 'root'
-    });
-    download({
-      name: "server",
-      resource: opts.package.jar,
-      opts: {
-        location: process.cwd()
-      }
-    }, () => {
-      opts.bar.tick(1, {
-        plugin: 'Main Jar',
-        to: 'root'
-      });
-      pluginTask();
-    });
-  } else if (yargs.j) {
-    console.log(
-      `${chalk.yellow("WARN:")} no jar specified in plugins.json, skipping.`
-    );
-    pluginTask();
-  } else {
-    pluginTask();
-  }
-
   let pluginTask = function() {
     if (yargs.s) {
       for (let key in plugins) {
@@ -85,4 +58,31 @@ module.exports = function(opts, yargs) {
       })(0);
     }
   };
+
+  if (yargs.j && opts.package.jar) {
+    opts.bar.tick(0, {
+      plugin: 'Main Jar',
+      to: 'root'
+    });
+    download({
+      name: "server",
+      resource: opts.package.jar,
+      opts: {
+        location: process.cwd()
+      }
+    }, () => {
+      opts.bar.tick(1, {
+        plugin: 'Main Jar',
+        to: 'root'
+      });
+      pluginTask();
+    });
+  } else if (yargs.j) {
+    console.log(
+      `${chalk.yellow("WARN:")} no jar specified in plugins.json, skipping.`
+    );
+    pluginTask();
+  } else {
+    pluginTask();
+  }
 };
