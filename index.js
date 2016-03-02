@@ -59,6 +59,8 @@ if (yargs.init) {
 
           if (i + 1 < Object.keys(plugins).length) {
             downloadPlugin(i + 1);
+          } else {
+            process.exit();
           }
         });
       })(0);
