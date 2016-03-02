@@ -18,7 +18,7 @@ optionally you can provide a plugins directory (default is plugins)
 
 > mpm -ip sweetPluginsGoHere
 
-![Install Gif](http://i.imgur.com/pJ37P1Q.gifv)
+![Install Gif](https://fat.gfycat.com/ParchedRadiantApe.gif)
 
 ## Setup
 Want to setup your very own `plugins.json`? No problem man, just run
