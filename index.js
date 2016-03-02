@@ -2,11 +2,12 @@
 'use strict';
 
 const yargs = require('yargs').argv;
-const download = require('./tools/download');
-const init = require('./tools/init');
 const ProgressBar = require('progress');
 const fs = require('fs');
 const chalk = require('chalk');
+
+const init = require('./tools/init');
+const install = require('./tools/install');
 
 if (yargs.init) {
   init();
@@ -31,7 +32,7 @@ if (yargs.init) {
 
 
   opts.bar = new ProgressBar(
-    `${chalk.blue(':plugin → ' + opts.shortLocation)} ${chalk.green(':bar')}`
+    `${chalk.blue(':plugin → ' + opts.shortLocation)} ${chalk.green(':bar :elapsed')}`
   , {
     total: Object.keys(opts.package.plugins).length,
     incomplete: '░',
@@ -44,34 +45,7 @@ if (yargs.init) {
       fs.mkdirSync(opts.location);
   }
 
-  const tasks = {
-    i: function() {
-      let plugins = opts.package.plugins;
-
-      (function downloadPlugin(i) {
-        let key = Object.keys(plugins)[i];
-
-        download({
-          name: key,
-          resource: plugins[key],
-          opts
-        }, () => {
-          opts.bar.tick(1, {
-            plugin: key
-          });
-
-          if (i + 1 < Object.keys(plugins).length) {
-            downloadPlugin(i + 1);
-          } else {
-            process.exit();
-          }
-        });
-      })(0);
-    },
-    init
-  };
-
   if (opts.install) {
-    tasks.i();
+    install(opts, yargs);
   }
 }
