@@ -13,9 +13,9 @@ if (yargs.init) {
   init();
 } else {
   try {
-    require.resolve(`${process.cwd()}/plugins.json`);
+    require.resolve(`${process.cwd()}/mpm.json`);
   } catch (e) {
-    console.error('No plugins.json found, are you in the right place?');
+    console.error('No mpm.json found, are you in the right place?');
     process.exit();
   }
 
@@ -27,14 +27,20 @@ if (yargs.init) {
       `${yargs.p}` : `plugins`,
     location: (yargs.p) ?
       `${process.cwd()}/${yargs.p}` : `${process.cwd()}/plugins`,
-    package: require(`${process.cwd()}/plugins.json`)
+    package: require(`${process.cwd()}/mpm.json`),
+    ticks: 0
   };
 
+  opts.ticks = Object.keys(opts.package.plugins).length;
+  if (yargs.j) opts.ticks = opts.ticks + 1;
+  if (opts.package.configs) {
+    opts.ticks = opts.ticks + Object.keys(opts.package.configs).length
+  }
 
   opts.bar = new ProgressBar(
-    `${chalk.blue(':plugin → ' + opts.shortLocation)} ${chalk.green(':bar :elapsed')}`
+    `${chalk.blue(':plugin → :to')} ${chalk.green(':bar :elapsed')}`
   , {
-    total: Object.keys(opts.package.plugins).length,
+    total: opts.ticks,
     incomplete: '░',
     complete: '█',
     width: 50

@@ -31,7 +31,7 @@ module.exports = function() {
                     pluginLoop();
                   })
                 } else {
-                  fs.writeFile('plugins.json', JSON.stringify(pf, null, 2), function(err) {
+                  fs.writeFile('mpm.json', JSON.stringify(pf, null, 2), function(err) {
                     if(err) {
                       console.log(err);
                     } else {
