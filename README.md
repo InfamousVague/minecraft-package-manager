@@ -7,6 +7,8 @@ below on linux to get mpm up and running in one step.
 
 > curl https://mpm.io/install.sh | sh
 
+Otherwise you can just run `npm i -g minecraft-package-manager`
+
 ## Usage
 Did somebody give you a plugins.json file? Sweet! All you have to run is
 
