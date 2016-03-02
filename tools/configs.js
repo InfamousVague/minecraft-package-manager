@@ -18,7 +18,7 @@ module.exports = function(opts, yargs) {
 
         if (opts.package.variables) {
           if (opts.package.variables[token]) {
-            let eToken = opts.package.variables[token];
+            eToken = opts.package.variables[token];
           } else {
             console.log(
               chalk.yellow(

@@ -1,6 +1,6 @@
 {
   "name": "minecraft-package-manager",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "It's kinda like npm, but it's for Minecraft. Cool right?",
   "main": "index.js",
   "scripts": {
