@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>mpm - download all the things!</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="mpm.css" media="screen" title="no title" charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+  <nav class="nav nav-inline">
+    <div class="container">
+      <a class="nav-link active" href="#inaction">In Action</a>
+      <a class="nav-link" href="#install">Installation</a>
+      <a class="nav-link" href="#docs">Docs</a>
+    </div>
+  </nav>
+  <div class="pageheader">
+    <div class="container">
+      <h1>mpm, it's pretty sweet.</h1>
+      <p class="lead">
+        With mpm you can deploy your spigot, bukkit, or whatever Minecraft server in just seconds. Check it out man.
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <a id="inaction"></a>
+    <div class="example">
+      <br /><br />
+      <h2>See it in action!</h2>
+      <link rel="stylesheet" type="text/css" href="asciinema-player.css" />
+      <script src="asciinema-player.js"></script>
+      <div id="player-container"></div>
+      <script>
+        asciinema_player.core.CreatePlayer('player-container', '/asciicast-38211.json', { width: $('.example').width(), height: 30 });
+      </script>
+    </div>
+  </div>
+
+  <div class="container">
+    <a id="install"></a>
+
+    <br /><br />
+
+    <h2>You're right, that is sweet!<h2>
+    <h5>...so how do I get it?</h5>
+
+    <p>Installation is dead simple (as long as you have node installed) simply run the following command</p>
+<pre class="highlight">
+npm install -g minecraft-package-manager
+</pre>
+<p>That's it! Now you can provision new minecraft servers dynamically with one simple command and one mpm.json file.</p>
+  </div>
+
+  <div class="container">
+    <a id="docs"></a>
+
+    <br /><br />
+    <h2>Now make me an mpm master!<h2>
+    <h5>alright young one, buckle up.</h5>
+<br /><br />
+<h5>Flags</h5>
+<pre class="highlight">
+-i, install
+-j, install server jar
+-p directoryName, custom plugins dir
+-s, synchronous installations
+--init, create a mpm.json file interactivly
+</pre>
+<br /><br />
+<h5>Basic install</h5>
+<pre class="highlight">
+-ijsp plugins
+</pre>
+
+<br /><br />
+<h5>Variable Loading</h5>
+<p>You can load variables into config files by using the syntax {{address}} in
+your config file and it will be automatically replaced with the associated variable
+within your mpm.json</p>
+<pre class="highlight">
+"variables": {
+  "address": "127.0.0.1",
+  "name": "FullStackMC",
+  "port": "25565"
+}
+</pre>
+
+<br /><br />
+<h5>Configs</h5>
+<p>Configs are loaded in the same way as plugins, but you have a few more options.
+If your confing is to be installed at the root use "rootLevel": true. If your config
+should be nested within your specified plugins directory provide the directory.
+<br /><br />
+In the example below mcmmo.yml will be installed as plugins/mcmmo/mcmmo.yml.</p>
+<pre class="highlight">
+"mcmmo.yml": {
+  "location": "mcmmo",
+  "resource": "http://mysweetcdn.io/FullStackMC/configs/mcmmo.yml"
+},
+"server.properties": {
+  "rootLevel": true,
+  "resource": "http://mysweetcdn.io/FullStackMC/configs/server.properties"
+}
+</pre>
+
+<br /><br />
+<h5>Custom Jars</h5>
+<p>If your Minecraft stack should use a specific jar, you can provide it in mpm.json.</p>
+<pre class="highlight">
+"jar": "http://getspigot.org/spigot19/spigot_server.jar",
+</pre>
+
+<br /><br />
+<h5>Sample mpm.json</h5>
+<pre class="highlight">
+{
+  "name": "FullStackMC",
+  "description": "One file to deploy all the things!",
+  "version": "0.0.1",
+  "jar": "http://getspigot.org/spigot19/spigot_server.jar",
+  "variables": {
+    "address": "127.0.0.1",
+    "name": "FullStackMC",
+    "port": "25565"
+  },
+  "plugins": {
+    "pet-master": "http://dev.bukkit.org/bukkit-plugins/pet-master/files/4-pet-master-v1-0-3/"
+  },
+  "configs": {
+    "mcmmo.yml": {
+      "location": "mcmmo",
+      "resource": "http://mysweetcdn.io/FullStackMC/configs/mcmmo.yml"
+    },
+    "server.properties": {
+      "rootLevel": true,
+      "resource": "http://mysweetcdn.io/FullStackMC/configs/server.properties"
+    }
+  }
+}
+</pre>
+  </div>
+</body>
+</html>
