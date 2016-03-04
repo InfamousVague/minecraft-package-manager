@@ -6,9 +6,11 @@ const configs = require('./configs');
 
 module.exports = function(opts, yargs) {
   let plugins = opts.package.plugins;
+  // Track downloaded files for concurrent downloaded completion checking
   let downloaded = 0;
 
   let pluginTask = function() {
+    // Synchronous downloading
     if (yargs.s) {
       for (let key in plugins) {
         download({
@@ -31,6 +33,7 @@ module.exports = function(opts, yargs) {
           }
         });
       }
+    // Asynchronous downloading
     } else {
       (function downloadPlugin(i) {
         let key = Object.keys(plugins)[i];
@@ -59,6 +62,8 @@ module.exports = function(opts, yargs) {
     }
   };
 
+
+  // Download the jar file if -j is provided.
   if (yargs.j && opts.package.jar) {
     opts.bar.tick(0, {
       plugin: 'Main Jar',
@@ -68,6 +73,7 @@ module.exports = function(opts, yargs) {
       name: "server",
       resource: opts.package.jar,
       opts: {
+        package: opts.package,
         location: process.cwd()
       }
     }, () => {

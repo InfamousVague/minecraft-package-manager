@@ -5,6 +5,7 @@ const fs = require('fs');
 const chalk = require('chalk');
 
 module.exports = function(opts, yargs) {
+  // Track how many configs have been downloaded for tracking concurrent download completion
   let downloaded = 0;
 
   const processNext = function(fileName, file) {
