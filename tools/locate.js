@@ -17,7 +17,14 @@ module.exports = function(file, resource, opts, cb) {
         }
       },
       function(err, httpResponse, body) {
-        cb(body.success);
+        if (body.success) {
+          cb(body.success);
+        } else {
+          console.log(
+            `${chalk.yellow("WARN:")} The registry couldn't find a resource for ${file}. Error: ${body}`
+          );
+          cb(resource);
+        }
       });
     } else {
       console.log(
