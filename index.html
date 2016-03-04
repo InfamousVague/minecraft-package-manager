@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="mpm.css" media="screen" title="no title" charset="utf-8">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
   <nav class="nav nav-inline">
@@ -61,7 +61,8 @@ npm install -g minecraft-package-manager
     <h2>Now make me an mpm master!<h2>
     <h5>alright young one, buckle up.</h5>
 <br /><br />
-<h5>Flags</h5>
+<a id="flags"></a>
+<h5>Flags <a href="#flags"><i class="fa fa-link"></i></a></h5>
 <pre class="highlight">
 -i, install
 -j, install server jar
@@ -76,7 +77,8 @@ mpm -ijsp plugins
 </pre>
 
 <br /><br />
-<h5>Variable Loading</h5>
+<a id="variables"></a>
+<h5>Variable Loading <a href="#variables"><i class="fa fa-link"></i></a></h5>
 <p>You can load variables into config files by using the syntax {{address}} in
 your config file and it will be automatically replaced with the associated variable
 within your mpm.json</p>
@@ -89,7 +91,8 @@ within your mpm.json</p>
 </pre>
 
 <br /><br />
-<h5>Configs</h5>
+<a id="configs"></a>
+<h5>Configs <a href="#configs"><i class="fa fa-link"></i></a></h5>
 <p>Configs are loaded in the same way as plugins, but you have a few more options.
 If your confing is to be installed at the root use "rootLevel": true. If your config
 should be nested within your specified plugins directory provide the directory.
@@ -107,7 +110,8 @@ In the example below mcmmo.yml will be installed as plugins/mcmmo/mcmmo.yml.</p>
 </pre>
 
 <br /><br />
-<h5>Hosting a Registry</h5>
+<a id="registry"></a>
+<h5>Hosting a Registry <a href="#registry"><i class="fa fa-link"></i></a></h5>
 <p>You can download plugins and configs by version number by running your very
 own mpm registry. For right now mpm does not have an officially supported registry
 but creating your own is easy. The registry should accept the following payload</p>
@@ -146,14 +150,16 @@ plugins: {
 
 
 <br /><br />
-<h5>Custom Jars</h5>
+<a id="customjars"></a>
+<h5>Custom Jars <a href="#customjars"><i class="fa fa-link"></i></a></h5>
 <p>If your Minecraft stack should use a specific jar, you can provide it in mpm.json.</p>
 <pre class="highlight">
 "jar": "http://getspigot.org/spigot19/spigot_server.jar",
 </pre>
 
 <br /><br />
-<h5>Sample mpm.json</h5>
+<a id="sample"></a>
+<h5>Sample mpm.json <a href="#sample"><i class="fa fa-link"></i></a></h5>
 <pre class="highlight">
 {
   "name": "FullStackMC",
