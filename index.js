@@ -31,10 +31,25 @@ if (yargs.init) {
     ticks: 0
   };
 
+
   opts.ticks = Object.keys(opts.package.plugins).length;
   if (yargs.j) opts.ticks = opts.ticks + 1;
   if (opts.package.configs) {
     opts.ticks = opts.ticks + Object.keys(opts.package.configs).length
+  }
+
+  if (yargs.a) {
+    let newPackage = opts.package;
+    let name = yargs.a.split('@')[0];
+    let resource = yargs.a.split('@')[1];
+    newPackage.plugins[name] = resource;
+    opts.package = newPackage;
+
+    fs.writeFile(`${process.cwd()}/mpm.json`, JSON.stringify(newPackage, null, 2), () => {
+      console.log(
+        `${chalk.green('INSTALLED:')} ${name} at ${resource}`
+      );
+    });
   }
 
   opts.bar = new ProgressBar(

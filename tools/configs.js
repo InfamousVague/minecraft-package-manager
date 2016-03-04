@@ -23,14 +23,14 @@ module.exports = function(opts, yargs) {
           } else {
             console.log(
               chalk.yellow(
-                `WARN: ${fileName} expected a variable ${token} to be present in your mpm.json, but it wasn't.`
+                `\nWARN: ${fileName} expected a variable ${token} to be present in your mpm.json, but it wasn't.`
               )
             );
           }
         } else {
           console.log(
             chalk.yellow(
-              `WARN: ${fileName} expected a variable ${token} to be present in your mpm.json, but it wasn't.`
+              `\nWARN: ${fileName} expected a variable ${token} to be present in your mpm.json, but it wasn't.`
             )
           );
         }

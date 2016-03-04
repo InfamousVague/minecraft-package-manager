@@ -17,20 +17,26 @@ module.exports = function(file, resource, opts, cb) {
         }
       },
       function(err, httpResponse, body) {
-        if (body.success) {
-          cb(body.success);
-        } else {
+        if (err) {
           console.log(
-            `${chalk.yellow("WARN:")} The registry couldn't find a resource for ${file}. Error: ${body}`
+            `\n${chalk.yellow("WARN:")} The registry couldn't find a resource for ${file}. Skipping.`
           );
-          cb(resource);
+        } else {
+          if (body.success) {
+            cb(body.success);
+          } else {
+            console.log(
+              `\n${chalk.yellow("WARN:")} The registry couldn't find a resource for ${file}. Skipping.`
+            );
+            cb(false);
+          }
         }
       });
     } else {
       console.log(
         `${chalk.yellow("WARN:")} ${file} expected to be downloaded from a registry, but no registry was provided.`
       );
-      cb(resource);
+      cb(false);
     }
   }
 }

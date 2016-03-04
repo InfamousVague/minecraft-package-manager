@@ -85,7 +85,7 @@ module.exports = function(opts, yargs) {
     });
   } else if (yargs.j) {
     console.log(
-      `${chalk.yellow("WARN:")} no jar specified in plugins.json, skipping.`
+      `\n${chalk.yellow("WARN:")} no jar specified in plugins.json, skipping.`
     );
     pluginTask();
   } else {
