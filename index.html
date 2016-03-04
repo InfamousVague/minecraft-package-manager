@@ -65,6 +65,7 @@ npm install -g minecraft-package-manager
 <h5>Flags <a href="#flags"><i class="fa fa-link"></i></a></h5>
 <pre class="highlight">
 -i, install
+-a plugin@version or plugin@resource, add a plugin to the mpm.json
 -j, install server jar
 -p directoryName, custom plugins dir
 -s, synchronous installations
@@ -74,6 +75,18 @@ npm install -g minecraft-package-manager
 <h5>Basic install</h5>
 <pre class="highlight">
 mpm -ijsp plugins
+</pre>
+
+<br /><br />
+<a id="addplugin"></a>
+<h5>Add a plugin <a href="#addplugin"><i class="fa fa-link"></i></a></h5>
+<p>You can add and install a plugin to your mpm.json quickly using the following.</p>
+<pre class="highlight">
+mpm -ia mcmmo@1.2.3
+</pre>
+or if you do not have a registry use
+<pre class="highlight">
+mpm -ia mcmmo@http://www.bukkit.com/mcmmo/files/mcmmo.jar
 </pre>
 
 <br /><br />
