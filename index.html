@@ -165,6 +165,7 @@ plugins: {
   "name": "FullStackMC",
   "description": "One file to deploy all the things!",
   "version": "0.0.1",
+  "registry": "https://mpm.cloud/registry",
   "jar": "http://getspigot.org/spigot19/spigot_server.jar",
   "variables": {
     "address": "127.0.0.1",
@@ -172,16 +173,16 @@ plugins: {
     "port": "25565"
   },
   "plugins": {
-    "pet-master": "http://dev.bukkit.org/bukkit-plugins/pet-master/files/4-pet-master-v1-0-3/"
+    "pet-master": "1.0.3"
   },
   "configs": {
     "mcmmo.yml": {
       "location": "mcmmo",
-      "resource": "http://mysweetcdn.io/FullStackMC/configs/mcmmo.yml"
+      "resource": "1.9"
     },
     "server.properties": {
       "rootLevel": true,
-      "resource": "http://mysweetcdn.io/FullStackMC/configs/server.properties"
+      "resource": "1.9"
     }
   }
 }
