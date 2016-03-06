@@ -121,6 +121,19 @@ In the example below mcmmo.yml will be installed as plugins/mcmmo/mcmmo.yml.</p>
   "resource": "http://mysweetcdn.io/FullStackMC/configs/server.properties"
 }
 </pre>
+If you have multiple configs with the same name use the following convention. Where `name` is the filename yo be saved of your config.
+<pre class="highlight">
+"mcmmoSettings.yml": {
+  "location": "mcmmo",
+  "name": "mcmmo.yml",
+  "resource": "http://mysweetcdn.io/FullStackMC/configs/mcmmo.yml"
+},
+"killCraftSettings.yml": {
+  "name":"killcraft.yml",
+  "location": "killCraft",
+  "resource": "http://mysweetcdn.io/FullStackMC/configs/killCraft.yml"
+},
+</pre>
 
 <br /><br />
 <a id="registry"></a>
