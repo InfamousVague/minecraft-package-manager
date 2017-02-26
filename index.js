@@ -1,6 +1,3 @@
-#!/usr/bin/env node
-'use strict'
-
 // NPM
 const yargs = require('yargs').argv
 const ProgressBar = require('progress')
